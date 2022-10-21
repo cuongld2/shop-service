@@ -124,5 +124,3 @@ gopkg.in/go-playground/validator.v8 v8.18.2/go.mod h1:RX2a/7Ha8BgOhfk7j780h4/u/R
 gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
 gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
-solace.dev/go/messaging v1.0.1 h1:ZIH1cmPgKJndPVBmEF8iWIR2TSZdsXtR3AdYR076mSU=
-solace.dev/go/messaging v1.0.1/go.mod h1:QKqAKqxKX5v0G9PEuRpe9wBNbEuj/ncbrkqsNArT7L0=
