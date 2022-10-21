@@ -1,3 +1,4 @@
+//go:build stripe
 // +build stripe
 
 package apppaymentintentget_test
@@ -8,9 +9,9 @@ import (
 	"os"
 	"testing"
 
-	appconfig "github.com/lelledaniele/upaygo/config"
-	appcurrency "github.com/lelledaniele/upaygo/currency"
-	apppaymentintentget "github.com/lelledaniele/upaygo/payment/intent/get"
+	appconfig "shopping-service.com/m/config"
+	appcurrency "shopping-service.com/m/currency"
+	apppaymentintentget "shopping-service.com/m/payment/intent/get"
 
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/paymentintent"

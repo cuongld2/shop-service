@@ -1,3 +1,4 @@
+//go:build unit
 // +build unit
 
 package appcustomer_test
@@ -5,7 +6,7 @@ package appcustomer_test
 import (
 	"testing"
 
-	appcustomer "github.com/lelledaniele/upaygo/customer"
+	appcustomer "shopping-service.com/m/customer"
 )
 
 func TestNew(t *testing.T) {

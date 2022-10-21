@@ -1,3 +1,4 @@
+//go:build unit
 // +build unit
 
 package appamount_test
@@ -5,8 +6,8 @@ package appamount_test
 import (
 	"testing"
 
-	appamount "github.com/lelledaniele/upaygo/amount"
-	appcurrency "github.com/lelledaniele/upaygo/currency"
+	appamount "shopping-service.com/m/amount"
+	appcurrency "shopping-service.com/m/currency"
 )
 
 func TestNew(t *testing.T) {

@@ -1,3 +1,4 @@
+//go:build stripe
 // +build stripe
 
 package apprestintentconfirm_test
@@ -13,9 +14,9 @@ import (
 	"strings"
 	"testing"
 
-	appconfig "github.com/lelledaniele/upaygo/config"
-	apprestintentconfirm "github.com/lelledaniele/upaygo/controller/rest/intent/confirm"
-	appcurrency "github.com/lelledaniele/upaygo/currency"
+	appconfig "shopping-service.com/m/config"
+	apprestintentconfirm "shopping-service.com/m/controller/rest/intent/confirm"
+	appcurrency "shopping-service.com/m/currency"
 
 	"github.com/gorilla/mux"
 	"github.com/stripe/stripe-go"

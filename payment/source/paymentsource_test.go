@@ -1,3 +1,4 @@
+//go:build unit
 // +build unit
 
 package apppaymentsource_test
@@ -5,7 +6,7 @@ package apppaymentsource_test
 import (
 	"testing"
 
-	apppaymentsource "github.com/lelledaniele/upaygo/payment/source"
+	apppaymentsource "shopping-service.com/m/payment/source"
 )
 
 func TestNew(t *testing.T) {

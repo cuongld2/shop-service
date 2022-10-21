@@ -1,3 +1,4 @@
+//go:build stripe
 // +build stripe
 
 package apprestintentcapture_test
@@ -13,9 +14,9 @@ import (
 	"strings"
 	"testing"
 
-	appconfig "github.com/lelledaniele/upaygo/config"
-	apprestintentcapture "github.com/lelledaniele/upaygo/controller/rest/intent/capture"
-	appcurrency "github.com/lelledaniele/upaygo/currency"
+	appconfig "shopping-service.com/m/config"
+	apprestintentcapture "shopping-service.com/m/controller/rest/intent/capture"
+	appcurrency "shopping-service.com/m/currency"
 
 	"github.com/gorilla/mux"
 	"github.com/stripe/stripe-go"

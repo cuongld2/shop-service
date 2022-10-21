@@ -3,9 +3,9 @@ package apppaymentintent
 import (
 	"time"
 
-	appamount "github.com/lelledaniele/upaygo/amount"
-	appcustomer "github.com/lelledaniele/upaygo/customer"
-	apppaymentsource "github.com/lelledaniele/upaygo/payment/source"
+	appamount "shopping-service.com/m/amount"
+	appcustomer "shopping-service.com/m/customer"
+	apppaymentsource "shopping-service.com/m/payment/source"
 )
 
 type Intent interface {

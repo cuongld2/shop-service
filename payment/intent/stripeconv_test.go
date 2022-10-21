@@ -1,3 +1,4 @@
+//go:build unit
 // +build unit
 
 package apppaymentintent_test
@@ -5,7 +6,7 @@ package apppaymentintent_test
 import (
 	"testing"
 
-	apppaymentintent "github.com/lelledaniele/upaygo/payment/intent"
+	apppaymentintent "shopping-service.com/m/payment/intent"
 
 	"github.com/stripe/stripe-go"
 )

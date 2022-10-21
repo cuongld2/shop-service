@@ -1,3 +1,4 @@
+//go:build stripe
 // +build stripe
 
 package appcustomer_test
@@ -10,10 +11,10 @@ import (
 
 	"github.com/stripe/stripe-go/customer"
 
-	appcurrency "github.com/lelledaniele/upaygo/currency"
+	appcurrency "shopping-service.com/m/currency"
 
-	appconfig "github.com/lelledaniele/upaygo/config"
-	appcustomer "github.com/lelledaniele/upaygo/customer"
+	appconfig "shopping-service.com/m/config"
+	appcustomer "shopping-service.com/m/customer"
 )
 
 func TestMain(m *testing.M) {

@@ -1,3 +1,4 @@
+//go:build stripe
 // +build stripe
 
 package apppaymentintentcreate_test
@@ -8,12 +9,12 @@ import (
 	"os"
 	"testing"
 
-	appamount "github.com/lelledaniele/upaygo/amount"
-	appconfig "github.com/lelledaniele/upaygo/config"
-	appcurrency "github.com/lelledaniele/upaygo/currency"
-	appcustomer "github.com/lelledaniele/upaygo/customer"
-	apppaymentintentcreate "github.com/lelledaniele/upaygo/payment/intent/create"
-	apppaymentsource "github.com/lelledaniele/upaygo/payment/source"
+	appamount "shopping-service.com/m/amount"
+	appconfig "shopping-service.com/m/config"
+	appcurrency "shopping-service.com/m/currency"
+	appcustomer "shopping-service.com/m/customer"
+	apppaymentintentcreate "shopping-service.com/m/payment/intent/create"
+	apppaymentsource "shopping-service.com/m/payment/source"
 
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/paymentintent"
