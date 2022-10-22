@@ -59,10 +59,10 @@ func Confirm(id string, c appcurrency.Currency) (apppaymentintent.Intent, error)
 
 	// Configuration parameters
 	brokerConfig := config.ServicePropertyMap{
-		config.TransportLayerPropertyHost:                "tcps://mrbhn5fvgw72c.messaging.solace.cloud:55443",
-		config.ServicePropertyVPNName:                    "payment-broker",
-		config.AuthenticationPropertySchemeBasicUserName: "solace-cloud-client",
-		config.AuthenticationPropertySchemeBasicPassword: "sp6c596qno9oq3cdsm80dp4eo4",
+		config.TransportLayerPropertyHost:                getEnv("TransportLayerPropertyHost", "tcps://"),
+		config.ServicePropertyVPNName:                    getEnv("ServicePropertyVPNName", "brokername"),
+		config.AuthenticationPropertySchemeBasicUserName: getEnv("AuthenticationPropertySchemeBasicUserName", "clientName"),
+		config.AuthenticationPropertySchemeBasicPassword: getEnv("AuthenticationPropertySchemeBasicPassword", "password"),
 	}
 	messagingService, err := messaging.NewMessagingServiceBuilder().FromConfigurationProvider(brokerConfig).WithTransportSecurityStrategy(config.NewTransportSecurityStrategy().WithoutCertificateValidation()).
 		Build()
