@@ -10,5 +10,5 @@ require (
 	github.com/swaggo/swag v1.6.7 // indirect
 	golang.org/x/text v0.3.4 // indirect
 	golang.org/x/tools v0.0.0-20190908135931-fef9eaa9e42b // indirect
-	solace.dev/go/messaging v1.0.1
+	solace.dev/go/messaging v1.1.0
 )

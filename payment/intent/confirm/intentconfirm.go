@@ -3,7 +3,9 @@ package apppaymentintentconfirm
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 
 	appconfig "shopping-service.com/m/config"
 	appcurrency "shopping-service.com/m/currency"
@@ -19,7 +21,7 @@ import (
 )
 
 // Define Topic Prefix
-const TopicPrefix = "solace/payment"
+const TopicPrefix = "events/payment-service"
 
 func MessageHandler(message message.InboundMessage) {
 	fmt.Printf("Message Dump %s \n", message)
@@ -30,6 +32,13 @@ func getEnv(key, def string) string {
 		return val
 	}
 	return def
+}
+
+func randomString(length int) string {
+	rand.Seed(time.Now().UnixNano())
+	b := make([]byte, length)
+	rand.Read(b)
+	return fmt.Sprintf("%x", b)[:length]
 }
 
 // Confirm gets the intent id from c Stripe account and confirm it
@@ -59,9 +68,9 @@ func Confirm(id string, c appcurrency.Currency) (apppaymentintent.Intent, error)
 
 	// Configuration parameters
 	brokerConfig := config.ServicePropertyMap{
-		config.TransportLayerPropertyHost:                getEnv("TransportLayerPropertyHost", "tcps://"),
-		config.ServicePropertyVPNName:                    getEnv("ServicePropertyVPNName", "brokername"),
-		config.AuthenticationPropertySchemeBasicUserName: getEnv("AuthenticationPropertySchemeBasicUserName", "clientName"),
+		config.TransportLayerPropertyHost:                getEnv("TransportLayerPropertyHost", "tcps:"),
+		config.ServicePropertyVPNName:                    getEnv("ServicePropertyVPNName", "brokerName"),
+		config.AuthenticationPropertySchemeBasicUserName: getEnv("AuthenticationPropertySchemeBasicUserName", "solace-cloud-client"),
 		config.AuthenticationPropertySchemeBasicPassword: getEnv("AuthenticationPropertySchemeBasicPassword", "password"),
 	}
 	messagingService, err := messaging.NewMessagingServiceBuilder().FromConfigurationProvider(brokerConfig).WithTransportSecurityStrategy(config.NewTransportSecurityStrategy().WithoutCertificateValidation()).
@@ -99,12 +108,15 @@ func Confirm(id string, c appcurrency.Currency) (apppaymentintent.Intent, error)
 
 	println("Subscribe to topic ", TopicPrefix+"/>")
 
+	productId := randomString(5)
+	paymentId := randomString(6)
+
 	if directPublisher.IsReady() {
 		message, err := messageBuilder.BuildWithStringPayload(messageBody + id)
 		if err != nil {
 			panic(err)
 		}
-		publishErr := directPublisher.Publish(message, resource.TopicOf(TopicPrefix+"/go/hello/"+"payment"+"/"))
+		publishErr := directPublisher.Publish(message, resource.TopicOf(TopicPrefix+"/"+productId+"/"+c.GetISO4217()+"/"+"pm_card_visa/"+paymentId+"/"))
 		if publishErr != nil {
 			panic(publishErr)
 		}
